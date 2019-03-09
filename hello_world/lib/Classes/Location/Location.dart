@@ -1,8 +1,10 @@
 class Location implements Comparable {
   //public (create and read Class)
   int get id => _id;
+  String get locationName => _locationName;
   int get civicNumber => _civicNumber;
   String get streetName => _streeName;
+  String get borough => _borough;
   String get city => _city;
   String get stateCode => _stateCode;
   String get state => _state;
@@ -14,8 +16,10 @@ class Location implements Comparable {
   //private
   static int _index = 0;
   int _id;
+  String _locationName;
   int _civicNumber;
   String _streeName;
+  String _borough;
   String _city;
   String _stateCode;
   String _state;
@@ -24,10 +28,13 @@ class Location implements Comparable {
   double _latitude;
   double _longitute;
 
-  Location(civicNumber, streetName, city, stateCode, state, country, postalCode, latitude, longitude) {
+  Location(String locationName, int civicNumber, String streetName, String borough, String city, String stateCode, String state, String country, String postalCode, double latitude, double longitude) {
     this._id = _index++;
+
+    this._locationName = locationName;
     this._civicNumber = civicNumber;
     this._streeName = streetName;
+    this._borough = borough;
     this._city = city;
     this._stateCode = stateCode;
     this._state = state;
