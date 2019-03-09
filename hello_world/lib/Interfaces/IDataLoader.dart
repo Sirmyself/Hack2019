@@ -1,6 +1,8 @@
+import '../Classes/Activity/Activity.dart';
+
 abstract class  IDataLoader {
   get source => "none";
 
-  void loadCityActivities(location);
-  void loadCustomActivities(location);
+  List<Activity> loadCityActivities(String location);
+  List<Activity> loadCustomActivities(String location);
 }

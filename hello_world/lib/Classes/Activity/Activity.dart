@@ -24,7 +24,7 @@ class Activity {
     this.start = start;
     this.end = end;
 
-    if (!actTypes.contains(this.type)) {
+    if (!(actTypes.indexOf(this.type) >= 0)) {
       actTypes.add(this.type);
       actTypes.sort();
     }
