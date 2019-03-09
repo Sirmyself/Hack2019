@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/flashCard.dart';
+import '../Utils/Tags.dart';
+import '../Utils/Tag.dart';
 
 class Profile extends StatefulWidget {
 
@@ -14,6 +16,9 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: Container(
         alignment: FractionalOffset.center,
+        decoration: new BoxDecoration(
+          border: new Border.all(color: Colors.blue)
+        ),
         margin: EdgeInsets.all(15),
         child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,6 +27,7 @@ class _ProfileState extends State<Profile> {
             width: 190,
             height: 190,
             decoration: new BoxDecoration(
+              border: new Border.all(color: Colors.blue),
               shape: BoxShape.circle,
               image: new DecorationImage(
                 fit: BoxFit.fill,

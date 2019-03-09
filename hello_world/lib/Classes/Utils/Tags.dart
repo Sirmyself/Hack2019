@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Utils/Tag.dart';
 
 class Tags extends StatefulWidget {
 
@@ -12,7 +13,14 @@ class _TagsState extends State<Tags> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-
+        color: Colors.grey,
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Tag("Yoga"),
+            new Tag("Natation")
+          ],
+        ),
       ),
     );
   }
