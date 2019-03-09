@@ -8,7 +8,8 @@ class FlashCardAlignment extends StatefulWidget
 {
   final int cardNum;
   final int numero;
-  FlashCardAlignment(this.cardNum, this.numero);
+  final Activity activity;
+  FlashCardAlignment(this.cardNum, this.numero,this.activity);
 
   @override
   _FlashCardAlignmentState createState() => _FlashCardAlignmentState();
