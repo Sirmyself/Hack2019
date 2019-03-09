@@ -1,4 +1,18 @@
-class Location {
+class Location implements Comparable {
+  //public (create and read Class)
+  int get id => _id;
+  int get civicNumber => _civicNumber;
+  String get streetName => _streeName;
+  String get city => _city;
+  String get stateCode => _stateCode;
+  String get state => _state;
+  String get country => _country;
+  String get postalCode => _postalCode;
+  double get latitude => _latitude;
+  double get longitute => _longitute;
+
+  //private
+  static int _index = 0;
   int _id;
   int _civicNumber;
   String _streeName;
@@ -7,13 +21,20 @@ class Location {
   String _state;
   String _country;
   String _postalCode;
-  double _longitute;
   double _latitude;
+  double _longitute;
 
-
-
-  Location() {
-
+  Location(civicNumber, streetName, city, stateCode, state, country, postalCode, latitude, longitude) {
+    this._id = _index++;
+    this._civicNumber = civicNumber;
+    this._streeName = streetName;
+    this._city = city;
+    this._stateCode = stateCode;
+    this._state = state;
+    this._country = country;
+    this._postalCode = postalCode;
+    this._latitude = latitude;
+    this._longitute = longitude;
   }
 
   String toString() {
@@ -23,22 +44,18 @@ class Location {
            (_stateCode.length > 0 ? (" (" + _stateCode + ") ") : "") +
            (_postalCode.length > 0 ? (" " + _postalCode) : "");
   }
-}
 
-/*      
-"CODE_SESSION": "H2019",
-"DESCRIPTION": "Tennis - Débutant à initié",
-"DESCRIPTION_ACT": "Tennis",
-"DESCRIPTION_NAT": "Sports et de plein air",
-"NOM_COUR": "Sports-Loisirs L'Ormière ",
-"TARIF_BASE": "99.00",
-"LIEU_1": "École secondaire Neufchâtel",
-"LIEU_2": "École secondaire Neufchâtel - Palestre",
-"ARRONDISSEMENT": "Arrondissement de La Haute-Saint-Charles",
-"ADRESSE": "3600, avenue Chauveau, Québec (QC) G2C 1A1 ",
-"DATE_DEB": "2019-01-26",
-"DATE_FIN": "2019-03-16",
-"JOUR_SEMAINE": "Samedi",
-"HEURE_DEBUT": "09:00:00",
-"HEURE_FIN": "10:30:00"
-*/
+  @override
+  int compareTo(other) {
+    if (!(other is Location)) throw new Exception("the object [" + other.toString() + "] can not be compared to a Location Object.");
+
+    int retVal = this._city.compareTo(other._city);
+    if (retVal == 0) {
+      retVal = this._streeName.compareTo(other._streeName);
+    }
+    if (retVal == 0) {
+      retVal = this._civicNumber.compareTo(other._civicNumber);
+    }
+    return retVal;
+  }
+}
