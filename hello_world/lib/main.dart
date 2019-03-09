@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flash'),
+      home:Home(),
+      // home: MyHomePage(title: 'Flash'),
     );
   }
 }
@@ -71,7 +73,7 @@ Widget flashCard = Container(
             Container(
               padding: EdgeInsets.all(10),
               child: Text(
-                'TITRE DE l\u0027EVENEMENT',
+                'Baignade libre',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30
@@ -87,6 +89,9 @@ Widget flashCard = Container(
     )
 );
 
+Widget flashCardSwipe = Container(
+  child: flashCard,
+);
 
 Widget infoImportanteSection = Container(
   child: Row(
