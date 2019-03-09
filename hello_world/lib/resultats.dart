@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'Classes/Activity/Activity.dart';
 import 'Classes/DebugDataLoader.dart';
 import 'activity.dart' as Activite;
-import 'arc_banner.dart';
-import 'Classes/Activity/ActivityUtilities.dart';
 
 class Resultats extends StatefulWidget {
     @override
