@@ -6,6 +6,7 @@ import 'Classes/Activity/Activity.dart';
 class FlashCardAlignment extends StatefulWidget
 {
   final int cardNum;
+  List<Activity> data = DebugDataLoader().loadCityActivities("Quebec");
   FlashCardAlignment(this.cardNum);
 
   @override
@@ -15,13 +16,12 @@ class FlashCardAlignment extends StatefulWidget
 class _FlashCardAlignmentState extends State<FlashCardAlignment> {
   int numero = 0;
 
-  List<Activity> data = DebugDataLoader().loadCityActivities("Quebec");
 
   @override
   Widget build(BuildContext context)
   {
-    // var f = new flashCard(data[numero].name, data[numero].start.toString(), data[numero].price.toString() + " \u0024", "", data[numero].location.locationName);
-    var f = new flashCard(numero.toString(), numero.toString(), numero.toString(), numero.toString(), numero.toString());
+    var f = new flashCard(widget.data[numero].name, widget.data[numero].start.toString(), widget.data[numero].price.toString() + " \u0024", "", widget.data[numero].location.locationName);
+    // var f = new flashCard(numero.toString(), numero.toString(), numero.toString(), numero.toString(), numero.toString());
     numero += 1;
     return f;
   }
