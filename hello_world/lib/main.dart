@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flash'),
+      home:Home(),
+      // home: MyHomePage(title: 'Flash'),
     );
   }
 }
@@ -32,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 flashCard,
               ],
@@ -44,7 +46,23 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 Widget flashCard = Container(
-  padding: const EdgeInsets.all  (32),
+  margin: EdgeInsets.all(15),
+  padding: EdgeInsets.all(15),
+  decoration: new BoxDecoration(
+    boxShadow: [
+      BoxShadow(
+        color: Colors.blueAccent[100],
+        blurRadius: 20,
+        spreadRadius: 5,
+        offset: Offset(10, 10),
+      )
+    ],
+    borderRadius: new BorderRadius.all(
+      const Radius.circular(25)
+    ),
+    border: new Border.all(color: Colors.white),
+    color: Colors.white
+  ),
   child: Row(
     children: [
       Expanded(
@@ -53,15 +71,16 @@ Widget flashCard = Container(
           children: [
             Image.asset('assets/images/piscine.jpg'),
             Container(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: EdgeInsets.all(10),
               child: Text(
-                'TITRE DE l\u0027EVENEMENT',
+                'Baignade libre',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30
                 )
               )
               ),
+            location,
             infoImportanteSection
           ],
         )
@@ -70,31 +89,45 @@ Widget flashCard = Container(
     )
 );
 
+Widget flashCardSwipe = Container(
+  child: flashCard,
+);
 
 Widget infoImportanteSection = Container(
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
+      construireInfo(Colors.blueAccent, Icons.date_range, '3 avril 2019'),
       construireInfo(Colors.blueAccent, Icons.access_time, '13h00'),
-      construireInfo(Colors.blueAccent, Icons.location_on, 'Complexe Desjardins'),
-      construireInfo(Colors.blueAccent, Icons.date_range, '3 avril 2019')
+      construireInfo(Colors.blueAccent, Icons.attach_money, '5.00 \u0024')
     ],
   ),
 );
 
+Widget location = Container(
+  padding: EdgeInsets.only(left: 10, bottom: 10),
+  child: Row(
+    children: [
+      Icon(Icons.location_on, color: Colors.blueAccent, size: 35.0,),
+      Expanded(
+        child: Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent, fontSize: 20), softWrap: true,),
+      )
+    ],
+  ),
+);
 
 Column construireInfo(Color color, IconData icon, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
+        Icon(icon, color: color, size: 35.0,),
         Container(
           margin: const EdgeInsets.only(top: 8),
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 20,
               fontWeight: FontWeight.w400,
               color: color,
             ),
