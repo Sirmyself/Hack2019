@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'placeholder_widget.dart';
 import 'recherche.dart';
 import 'main.dart';
+import 'Classes/Profile/Profile.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
     Recherche(),
     new FlashCardSwipe(),
-    PlaceholderWidget(Colors.green)
+    Profile()
   ];
 
   @override
