@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 flashCard,
               ],
@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 Widget flashCard = Container(
-  padding: const EdgeInsets.all  (32),
   child: Row(
     children: [
       Expanded(
@@ -53,7 +52,7 @@ Widget flashCard = Container(
           children: [
             Image.asset('assets/images/piscine.jpg'),
             Container(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: EdgeInsets.all(10),
               child: Text(
                 'TITRE DE l\u0027EVENEMENT',
                 style: TextStyle(
