@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'flashCardAlignment.dart';
 import 'dart:math';
 import 'Classes/DebugDataLoader.dart';
+import 'Classes/Activity/Activity.dart';
 
 List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
-int activities = DebugDataLoader().loadCityActivities("Quebec").length;
+List<Activity> liked = new List<Activity>();
+List<Activity> hated = new List<Activity>(); 
+List<Activity> activities = DebugDataLoader().loadCityActivities("Quebec");
+int activitiesCount = activities.length;
 int numero = 0;
 int image = 0;
 int imageNumber = 7;
@@ -42,8 +46,8 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
     // Init cards
     for (cardsCounter = 0; cardsCounter < 3; cardsCounter++)
     {
-      cards.add(new FlashCardAlignment(cardsCounter, numero, image));
-      numero = (numero + 1) % activities;
+      cards.add(new FlashCardAlignment(cardsCounter, numero, image, activities[numero]));
+      numero = (numero + 1) % activitiesCount;
       image = (image + 1) % imageNumber;
     }
 
@@ -147,7 +151,7 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
   {
     return new Align
     (
-      alignment: _controller.status == AnimationStatus.forward ? CardsAnimation.frontCardDisappearAlignmentAnim(_controller, frontCardAlign).value : frontCardAlign,
+      alignment: _controller.status == AnimationStatus.forward ? CardsAnimation.frontCardDisappearAlignmentAnim(_controller, frontCardAlign, cards[0]).value : frontCardAlign,
       child: new Transform.rotate
       (
         angle: (pi / 180.0) * frontCardRot,
@@ -170,8 +174,8 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
       cards[1] = cards[2];
       cards[2] = temp;
 
-      cards[2] = new FlashCardAlignment(cardsCounter, numero, image);
-      numero = (numero + 1) % activities;
+      cards[2] = new FlashCardAlignment(cardsCounter, numero, image, activities[numero]);
+      numero = (numero + 1) % activitiesCount;
       image = (numero + 1) % imageNumber;
       cardsCounter++;
 
@@ -254,13 +258,22 @@ class CardsAnimation
     );
   }
 
-  static Animation<Alignment> frontCardDisappearAlignmentAnim(AnimationController parent, Alignment beginAlign)
+  static Animation<Alignment> frontCardDisappearAlignmentAnim(AnimationController parent, Alignment beginAlign, FlashCardAlignment card)
   {
-    return new AlignmentTween
+    var swiped = new AlignmentTween
     (
       begin: beginAlign,
       end: new Alignment(beginAlign.x > 0 ? beginAlign.x + 30.0 : beginAlign.x - 30.0, 0.0) // Has swiped to the left or right?
-    ).animate
+    );
+    bool isSwipedRight = swiped.end.x > 0;
+    if(isSwipedRight) 
+    {
+      liked.add(card.activity);
+    }
+    else{
+      hated.add(card.activity);
+    }
+    return swiped.animate
     (
       new CurvedAnimation
       (
