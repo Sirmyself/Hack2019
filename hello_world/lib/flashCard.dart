@@ -16,11 +16,18 @@ class FlashCard extends StatefulWidget {
 class _FlashCardState extends State<FlashCard> {
   @override
   Widget build(BuildContext context) {
-    var scaffold =Scaffold(
+    var scaffold = Scaffold(
+      backgroundColor: Colors.transparent,
       body: Container(
-  margin: EdgeInsets.all(15),
-  padding: EdgeInsets.all(15),
   decoration: new BoxDecoration(
+    color: Colors.transparent,
+    borderRadius: new BorderRadius.all(
+      const Radius.circular(25)
+    ),
+  ),
+  
+  child: Container(
+    decoration: new BoxDecoration(
     boxShadow: [
       BoxShadow(
         color: Colors.blueAccent[100],
@@ -32,17 +39,27 @@ class _FlashCardState extends State<FlashCard> {
     borderRadius: new BorderRadius.all(
       const Radius.circular(25)
     ),
-    // border: new Border.all(color: Colors.white),
-    color: Colors.white
+    color: Colors.white,
   ),
-  child: Row(
+    child: Row(
     children: [
       Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/images/piscine.jpg'),
+            new ClipRRect(
+              borderRadius: new BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25)
+              ),
+              child: Image.asset('assets/images/piscine.jpg')),
             Container(
+              decoration: new BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: new BorderRadius.all(
+                const Radius.circular(25)
+              ),
+              ),
               padding: EdgeInsets.all(10),
               child: Text(
                 widget.titre,
@@ -60,6 +77,7 @@ class _FlashCardState extends State<FlashCard> {
     ],
     )
 )
+    )
     );
     return scaffold;
   }

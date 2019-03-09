@@ -44,7 +44,8 @@ class _ProfileState extends State<Profile> {
             "John Doe",
             textScaleFactor: 1.5)
         ),
-        location("Québec")
+        location("Québec"),
+        
         ]
       )
       )
