@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'flashCardAlignment.dart';
 import 'dart:math';
 
-List<Alignment> cardsAlign = [ new Alignment(0.0, 1.0), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
+List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
 
 class CardsSectionAlignment extends StatefulWidget
