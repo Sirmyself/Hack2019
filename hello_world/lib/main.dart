@@ -114,13 +114,13 @@ Column construireInfo(Color color, IconData icon, String label) {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
+        Icon(icon, color: color, size: 35.0,),
         Container(
           margin: const EdgeInsets.only(top: 8),
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 20,
               fontWeight: FontWeight.w400,
               color: color,
             ),
