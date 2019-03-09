@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class flashCard extends StatefulWidget {
+class FlashCard extends StatefulWidget {
   final String titre;
   final String heure;
   final String prix;
@@ -8,12 +8,12 @@ class flashCard extends StatefulWidget {
   final String location;
 
   @override
-  _flashCardState createState() => _flashCardState();
+  _FlashCardState createState() => _FlashCardState();
 
-  flashCard(this.titre, this.heure, this.prix, this.date, this.location);
+  FlashCard(this.titre, this.heure, this.prix, this.date, this.location);
 }
 
-class _flashCardState extends State<flashCard> {
+class _FlashCardState extends State<FlashCard> {
   @override
   Widget build(BuildContext context) {
     var scaffold =Scaffold(

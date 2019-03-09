@@ -21,8 +21,7 @@ class _FlashCardAlignmentState extends State<FlashCardAlignment> {
   @override
   Widget build(BuildContext context)
   {
-    var f = new flashCard(data[numero].name, data[numero].start.day.toString() + " " + getMonth(data[numero].start.month), data[numero].price.toString() + " \u0024", getTime(data[numero].start), data[numero].location.locationName);
-    // var f = new flashCard(numero.toString(), numero.toString(), numero.toString(), numero.toString(), numero.toString());
+    var f = new FlashCard(data[numero].name, data[numero].start.day.toString() + " " + getMonth(data[numero].start.month), data[numero].price.toString() + " \u0024", getTime(data[numero].start), data[numero].location.locationName);
     numero += 1;
     return f;
   }
@@ -66,6 +65,8 @@ String getMonth(int mois) {
     case 12:
       return "Décembre";
       break;
+    default:
+      return "Mois";
   }
 }
 
