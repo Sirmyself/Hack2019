@@ -1,5 +1,3 @@
-import '../Interfaces/IDataLoader.dart';
-
 abstract class  IDataLoader {
   get source => "none";
 

@@ -9,9 +9,15 @@ class CardsSectionAlignment extends StatefulWidget
 {
   CardsSectionAlignment(BuildContext context)
   {
+<<<<<<< HEAD
     cardsSize[0] = new Size(MediaQuery.of(context).size.width * .9, MediaQuery.of(context).size.height * .9);
     cardsSize[1] = new Size(MediaQuery.of(context).size.width * 0.85, MediaQuery.of(context).size.height * 0.8);
     cardsSize[2] = new Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.75);
+=======
+    cardsSize[0] = new Size(MediaQuery.of(context).size.width * 0.9, MediaQuery.of(context).size.height * 0.75);
+    cardsSize[1] = new Size(MediaQuery.of(context).size.width * 0.85, MediaQuery.of(context).size.height * 0.65);
+    cardsSize[2] = new Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.6);
+>>>>>>> 68d5be7c0b11e4623c3a324617b134bd13bf423c
   }
 
   @override
