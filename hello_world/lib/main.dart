@@ -31,19 +31,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
-          appBar: AppBar(
-            title: Text(widget.title),
-          ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                flashCard,
-              ],
-            ),
-          ),
-        );
-        return scaffold;
+      resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: flashCard
+      );
+    return scaffold;
   }
 }
 

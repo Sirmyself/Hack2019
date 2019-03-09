@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'flashCardAlignment.dart';
 import 'dart:math';
 
-List<Alignment> cardsAlign = [ new Alignment(0.0, 1.0), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
+List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
 
 class CardsSectionAlignment extends StatefulWidget
 {
   CardsSectionAlignment(BuildContext context)
   {
-    cardsSize[0] = new Size(MediaQuery.of(context).size.width * 0.9, MediaQuery.of(context).size.height * 0.6);
-    cardsSize[1] = new Size(MediaQuery.of(context).size.width * 0.85, MediaQuery.of(context).size.height * 0.55);
-    cardsSize[2] = new Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.5);
+    cardsSize[0] = new Size(MediaQuery.of(context).size.width * .9, MediaQuery.of(context).size.height * .9);
+    cardsSize[1] = new Size(MediaQuery.of(context).size.width * 0.85, MediaQuery.of(context).size.height * 0.8);
+    cardsSize[2] = new Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.75);
   }
 
   @override
