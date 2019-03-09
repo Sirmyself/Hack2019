@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class flashCardSwipe extends StatefulWidget {
+class FlashCardSwipe extends StatefulWidget {
 
   @override
-  _flashCardSwipeState createState() => new _flashCardSwipeState();
+  _FlashCardSwipeState createState() => new _FlashCardSwipeState();
 }
 
-class _flashCardSwipeState extends State<flashCardSwipe> {
+class _FlashCardSwipeState extends State<FlashCardSwipe> {
 
   @override
   Widget build(BuildContext context) {

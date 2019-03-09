@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 
-class flashCard extends StatefulWidget {
+class FlashCard extends StatefulWidget {
   final String titre;
   final String heure;
   final String prix;
   final String date;
   final String location;
+  final int image;
 
   @override
-  _flashCardState createState() => _flashCardState();
+  _FlashCardState createState() => _FlashCardState();
 
-  flashCard(this.titre, this.heure, this.prix, this.date, this.location);
+  FlashCard(this.titre, this.heure, this.prix, this.date, this.location, this.image);
 }
 
-class _flashCardState extends State<flashCard> {
+class _FlashCardState extends State<FlashCard> {
   @override
   Widget build(BuildContext context) {
-    var scaffold =Scaffold(
+    var scaffold = Scaffold(
+      backgroundColor: Colors.transparent,
       body: Container(
-  margin: EdgeInsets.all(15),
-  padding: EdgeInsets.all(15),
   decoration: new BoxDecoration(
+    color: Colors.transparent,
+    borderRadius: new BorderRadius.all(
+      const Radius.circular(25)
+    ),
+  ),
+  
+  child: Container(
+    decoration: new BoxDecoration(
     boxShadow: [
       BoxShadow(
         color: Colors.blueAccent[100],
@@ -32,17 +40,27 @@ class _flashCardState extends State<flashCard> {
     borderRadius: new BorderRadius.all(
       const Radius.circular(25)
     ),
-    // border: new Border.all(color: Colors.white),
-    color: Colors.white
+    color: Colors.white,
   ),
-  child: Row(
+    child: Row(
     children: [
       Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/images/piscine.jpg'),
+            new ClipRRect(
+              borderRadius: new BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25)
+              ),
+              child: Image.asset('assets/images/'+ widget.image.toString()  +'.jpg', fit: BoxFit.fitWidth, width: 500,)),
             Container(
+              decoration: new BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: new BorderRadius.all(
+                const Radius.circular(25)
+              ),
+              ),
               padding: EdgeInsets.all(10),
               child: Text(
                 widget.titre,
@@ -60,6 +78,7 @@ class _flashCardState extends State<flashCard> {
     ],
     )
 )
+    )
     );
     return scaffold;
   }
