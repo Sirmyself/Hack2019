@@ -137,8 +137,10 @@ Widget location = Container(
   padding: EdgeInsets.only(left: 10, bottom: 10),
   child: Row(
     children: [
-      Icon(Icons.location_on, color: Colors.blueAccent),
-      Text('Complexe sportif Desjardins, Rimouski, avenue leonidas, fils de Zeus et mangeur de poutine memo avec dla sauce thai', style: TextStyle(color: Colors.blueAccent),)
+      Icon(Icons.location_on, color: Colors.blueAccent, size: 35.0,),
+      Expanded(
+        child: Text('Complexe sportif Desjardins, Rimouski, avenue leonidas, fils de Zeus et mangeur de poutine memo avec dla sauce thai', style: TextStyle(color: Colors.blueAccent, fontSize: 20), softWrap: true,),
+      )
     ],
   ),
 );
