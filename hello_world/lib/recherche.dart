@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'main.dart';
-
+import 'Classes/Activity/Activity.dart';
+import 'Classes/DebugDataLoader.dart';
 
 class Recherche extends StatefulWidget {
   @override
@@ -56,9 +56,11 @@ class _Recherche extends State<Recherche>{
   }
   
   @override
-  Widget build (BuildContext ctxt){
+  Widget build(BuildContext ctxt){
     return new Scaffold(
-      body: Column(
+      body: Container(
+        child: 
+        Column(
         children: <Widget>[ 
           Row(
             children: [     
@@ -123,8 +125,59 @@ class _Recherche extends State<Recherche>{
               RaisedButton(onPressed: _selectDate, child: new Text('Rechercher',style: TextStyle(fontSize: 25.0),),color: Colors.blue, textColor: Colors.white)  
             ],
           ),
+          Expanded(
+            child: new ActivitiesPage()
+          )
         ],
       ),
+      )
+    );
+  }
+}
+
+class _ActivityListItem extends StatelessWidget {
+  final Activity _activity;
+
+  _ActivityListItem(this._activity);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CircleAvatar(
+        child: Text(_activity.name[0]),
+      ),
+      title: Text(_activity.name),
+      subtitle: Text(_activity.location.locationName),
+    );
+  }
+}
+
+class ActivityList extends StatelessWidget {
+
+  final List<Activity> _activities;
+
+  ActivityList(this._activities);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      children: _buildActivityList()
+    );
+  }
+
+  List<_ActivityListItem> _buildActivityList() {
+    return _activities.map((activity) => _ActivityListItem(activity))
+                  .toList();
+  }
+}
+
+class ActivitiesPage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ActivityList(DebugDataLoader().loadCityActivities("Quebec")),
     );
   }
 }
