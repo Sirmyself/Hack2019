@@ -21,7 +21,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scooby Doo bi doo'),
+        centerTitle: true,
+        title: Text('Tinder pour les cools'),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(

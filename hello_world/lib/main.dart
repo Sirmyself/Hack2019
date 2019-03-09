@@ -90,8 +90,37 @@ Widget flashCard = Container(
 );
 
 Widget flashCardSwipe = Container(
-  child: flashCard,
+  child: Column(
+    children: [
+      flashCard,
+      buttonsRow()
+    ]
+  )
 );
+
+Widget buttonsRow()
+{
+  return new Container
+  (
+    margin: new EdgeInsets.symmetric(vertical: 48),
+    child: new Row (
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget> [
+        new FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: new Icon(Icons.close, color: Colors.red),
+        ),
+        new FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: new Icon(Icons.favorite, color: Colors.green),
+        )
+      ],
+    ),
+  );
+}
 
 Widget infoImportanteSection = Container(
   child: Row(
@@ -109,7 +138,7 @@ Widget location = Container(
   child: Row(
     children: [
       Icon(Icons.location_on, color: Colors.blueAccent),
-      Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent),)
+      Text('Complexe sportif Desjardins, Rimouski, avenue leonidas, fils de Zeus et mangeur de poutine memo avec dla sauce thai', style: TextStyle(color: Colors.blueAccent),)
     ],
   ),
 );
