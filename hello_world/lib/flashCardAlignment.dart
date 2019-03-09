@@ -8,23 +8,21 @@ class FlashCardAlignment extends StatefulWidget
 {
   final int cardNum;
   final int numero;
-  FlashCardAlignment(this.cardNum, this.numero);
+  final int image;
+  FlashCardAlignment(this.cardNum, this.numero, this.image);
 
   @override
   _FlashCardAlignmentState createState() => _FlashCardAlignmentState();
 }
 
 class _FlashCardAlignmentState extends State<FlashCardAlignment> {
-  // int numero = 0;
 
   List<Activity> data = DebugDataLoader().loadCityActivities("Quebec");
 
   @override
   Widget build(BuildContext context)
   {
-    var f = new FlashCard(data[widget.numero].name, data[widget.numero].start.day.toString() + " " + getMonth(data[widget.numero].start.month), data[widget.numero].price.toString() + " \u0024", getTime(data[widget.numero].start), data[widget.numero].location.locationName);
-    // widget.numero += 1;
-    return f;
+    return new FlashCard(data[widget.numero].name, data[widget.numero].start.day.toString() + " " + getMonth(data[widget.numero].start.month), data[widget.numero].price.toString() + " \u0024", getTime(data[widget.numero].start), data[widget.numero].location.locationName, widget.image);
   }
 }
 
