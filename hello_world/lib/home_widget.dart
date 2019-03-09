@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
+import 'recherche.dart';
 import 'main.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +13,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    Recherche(),
     new flashCardSwipe(),
     PlaceholderWidget(Colors.green)
   ];
