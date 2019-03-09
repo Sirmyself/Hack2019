@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'flashCard.dart';
-import 'Classes/DebugDataLoader.dart';
+import 'Classes/JSONDataLoader.dart';
 import 'Classes/Activity/Activity.dart';
 // import 'package:intl/intl.dart';
 
@@ -18,7 +18,7 @@ class FlashCardAlignment extends StatefulWidget
 
 class _FlashCardAlignmentState extends State<FlashCardAlignment> {
 
-  List<Activity> data = DebugDataLoader().loadCityActivities("Quebec");
+  List<Activity> data = JSONDataLoader().loadCityActivities("Quebec");
 
   @override
   Widget build(BuildContext context)

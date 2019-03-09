@@ -3,6 +3,7 @@ import 'flashCardAlignment.dart';
 import 'dart:math';
 import 'Classes/DebugDataLoader.dart';
 import 'Classes/Activity/Activity.dart';
+import 'overlay.dart';
 
 List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
@@ -37,6 +38,7 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
   final Alignment defaultFrontCardAlign = new Alignment(0.0, 0.0);
   Alignment frontCardAlign;
   double frontCardRot = 0.0;
+  Color frontCardColor = Colors.green;
 
   @override
   void initState()
@@ -93,6 +95,7 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
                     frontCardAlign.y + 40 * details.delta.dy / MediaQuery.of(context).size.height
                   );
                   
+
                   frontCardRot = frontCardAlign.x; // * rotation speed;
                 });
               },
@@ -111,6 +114,7 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
                   {
                     frontCardAlign = defaultFrontCardAlign;
                     frontCardRot = 0.0;
+                    frontCardColor = Colors.red;
                   });
                 }
               },
@@ -258,6 +262,18 @@ class CardsAnimation
     );
   }
 
+  static Animation<Color> middleCardColorAnim(AnimationController parent) {
+    return new ColorTween(
+      begin: Colors.white,
+      end: Colors.green
+    ).animate(
+      new CurvedAnimation (
+        parent: parent,
+        curve: new Interval(0.2, 0.5, curve: Curves.easeIn)
+      )
+    );
+  }
+
   static Animation<Alignment> frontCardDisappearAlignmentAnim(AnimationController parent, Alignment beginAlign, FlashCardAlignment card)
   {
     var swiped = new AlignmentTween
@@ -266,6 +282,7 @@ class CardsAnimation
       end: new Alignment(beginAlign.x > 0 ? beginAlign.x + 30.0 : beginAlign.x - 30.0, 0.0) // Has swiped to the left or right?
     );
     bool isSwipedRight = swiped.end.x > 0;
+
     if(isSwipedRight) 
     {
       liked.add(card.activity);

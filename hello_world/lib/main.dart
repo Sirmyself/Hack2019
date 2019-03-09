@@ -32,6 +32,9 @@ class _FlashCardSwipeState extends State<FlashCardSwipe> {
       body: new Column(
         children: <Widget>[
           new CardsSectionAlignment(context),
+          Row(
+            
+          )
         ],
       ),
     );
