@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/flashCard.dart';
-import '../Utils/Tags.dart';
-import '../Utils/Tag.dart';
 
 class Profile extends StatefulWidget {
 

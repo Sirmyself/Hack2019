@@ -6,11 +6,12 @@ class FlashCard extends StatefulWidget {
   final String prix;
   final String date;
   final String location;
+  final int image;
 
   @override
   _FlashCardState createState() => _FlashCardState();
 
-  FlashCard(this.titre, this.heure, this.prix, this.date, this.location);
+  FlashCard(this.titre, this.heure, this.prix, this.date, this.location, this.image);
 }
 
 class _FlashCardState extends State<FlashCard> {
@@ -52,7 +53,7 @@ class _FlashCardState extends State<FlashCard> {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25)
               ),
-              child: Image.asset('assets/images/piscine.jpg')),
+              child: Image.asset('assets/images/'+ widget.image.toString()  +'.jpg', fit: BoxFit.fitWidth, width: 500,)),
             Container(
               decoration: new BoxDecoration(
                 color: Colors.transparent,
