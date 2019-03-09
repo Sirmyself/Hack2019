@@ -34,12 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  'You have pushed the button this many times:',
-                ),
-                Text(
-                  style: Theme.of(context).textTheme.display1,
-                ),
+                flashCard,
               ],
             ),
           ),
@@ -47,3 +42,64 @@ class _MyHomePageState extends State<MyHomePage> {
         return scaffold;
   }
 }
+
+Widget flashCard = Container(
+  padding: const EdgeInsets.all  (32),
+  child: Row(
+    children: [
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset('assets/images/piscine.jpg'),
+            Container(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                'TITRE DE l\u0027EVENEMENT',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30
+                )
+              )
+              ),
+            infoImportanteSection
+          ],
+        )
+        )
+    ],
+    )
+);
+
+
+Widget infoImportanteSection = Container(
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      construireInfo(Colors.blueAccent, Icons.access_time, '13h00'),
+      construireInfo(Colors.blueAccent, Icons.location_on, 'Complexe Desjardins'),
+      construireInfo(Colors.blueAccent, Icons.date_range, '3 avril 2019')
+    ],
+  ),
+);
+
+
+Column construireInfo(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
