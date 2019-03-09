@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_widget.dart';
+import 'flashCardAlignment.dart';
+import 'flashCards_section_alignment.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'HackQC19',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       home:Home(),
       // home: MyHomePage(title: 'Flash'),
@@ -60,7 +62,7 @@ Widget flashCard = Container(
     borderRadius: new BorderRadius.all(
       const Radius.circular(25)
     ),
-    border: new Border.all(color: Colors.white),
+    // border: new Border.all(color: Colors.white),
     color: Colors.white
   ),
   child: Row(
@@ -89,14 +91,25 @@ Widget flashCard = Container(
     )
 );
 
-Widget flashCardSwipe = Container(
-  child: Column(
-    children: [
-      flashCard,
-      buttonsRow()
-    ]
-  )
-);
+class flashCardSwipe extends StatefulWidget {
+
+  @override
+  _flashCardSwipeState createState() => new _flashCardSwipeState();
+}
+
+class _flashCardSwipeState extends State<flashCardSwipe> {
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Column(
+        children: <Widget>[
+          new CardsSectionAlignment(context),
+        ],
+      ),
+    );
+  }
+}
 
 Widget buttonsRow()
 {
@@ -139,7 +152,7 @@ Widget location = Container(
     children: [
       Icon(Icons.location_on, color: Colors.blueAccent, size: 35.0,),
       Expanded(
-        child: Text('Complexe sportif Desjardins, Rimouski, avenue leonidas, fils de Zeus et mangeur de poutine memo avec dla sauce thai', style: TextStyle(color: Colors.blueAccent, fontSize: 20), softWrap: true,),
+        child: Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent, fontSize: 20), softWrap: true,),
       )
     ],
   ),
