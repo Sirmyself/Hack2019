@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_widget.dart';
+import 'flashCardAlignment.dart';
+import 'flashCards_section_alignment.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'HackQC19',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       home:Home(),
       // home: MyHomePage(title: 'Flash'),
@@ -60,7 +62,7 @@ Widget flashCard = Container(
     borderRadius: new BorderRadius.all(
       const Radius.circular(25)
     ),
-    border: new Border.all(color: Colors.white),
+    // border: new Border.all(color: Colors.white),
     color: Colors.white
   ),
   child: Row(
@@ -89,9 +91,49 @@ Widget flashCard = Container(
     )
 );
 
-Widget flashCardSwipe = Container(
-  child: flashCard,
-);
+class flashCardSwipe extends StatefulWidget {
+
+  @override
+  _flashCardSwipeState createState() => new _flashCardSwipeState();
+}
+
+class _flashCardSwipeState extends State<flashCardSwipe> {
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Column(
+        children: <Widget>[
+          new CardsSectionAlignment(context),
+        ],
+      ),
+    );
+  }
+}
+
+Widget buttonsRow()
+{
+  return new Container
+  (
+    margin: new EdgeInsets.symmetric(vertical: 48),
+    child: new Row (
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget> [
+        new FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: new Icon(Icons.close, color: Colors.red),
+        ),
+        new FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.white,
+          child: new Icon(Icons.favorite, color: Colors.green),
+        )
+      ],
+    ),
+  );
+}
 
 Widget infoImportanteSection = Container(
   child: Row(

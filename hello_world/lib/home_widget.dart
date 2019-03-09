@@ -13,7 +13,7 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     PlaceholderWidget(Colors.white),
-    flashCardSwipe,
+    new flashCardSwipe(),
     PlaceholderWidget(Colors.green)
   ];
 
@@ -21,7 +21,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scooby Doo bi doo'),
+        centerTitle: true,
+        title: Text('Tinder pour les cools'),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
