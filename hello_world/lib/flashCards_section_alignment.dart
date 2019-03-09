@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'flashCardAlignment.dart';
 import 'dart:math';
+import 'Classes/DebugDataLoader.dart';
+import 'Classes/Activity/Activity.dart';
 
 List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
+int activities = DebugDataLoader().loadCityActivities("Quebec").length;
+int numero = 0;
 
 class CardsSectionAlignment extends StatefulWidget
 {
@@ -37,7 +41,8 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
     // Init cards
     for (cardsCounter = 0; cardsCounter < 3; cardsCounter++)
     {
-      cards.add(new FlashCardAlignment(cardsCounter));
+      cards.add(new FlashCardAlignment(cardsCounter, numero));
+      numero = (numero + 1) % activities;
     }
 
     frontCardAlign = cardsAlign[2];
@@ -163,7 +168,8 @@ class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerP
       cards[1] = cards[2];
       cards[2] = temp;
 
-      cards[2] = new FlashCardAlignment(cardsCounter);
+      cards[2] = new FlashCardAlignment(cardsCounter, numero);
+      numero = (numero + 1) % activities;
       cardsCounter++;
 
       frontCardAlign = defaultFrontCardAlign;
