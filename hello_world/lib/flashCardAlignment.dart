@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'flashCard.dart';
 import 'Classes/DebugDataLoader.dart';
 import 'Classes/Activity/Activity.dart';
-import 'package:intl/intl.dart';
+// import 'package:intl/intl.dart';
 
 class FlashCardAlignment extends StatefulWidget
 {
@@ -21,7 +21,7 @@ class _FlashCardAlignmentState extends State<FlashCardAlignment> {
   @override
   Widget build(BuildContext context)
   {
-    var f = new flashCard(data[numero].name, data[numero].start.day.toString() + " " + getMonth(data[numero].start.month), data[numero].price.toString() + " \u0024", data[numero].start.hour.toString(), data[numero].location.locationName);
+    var f = new flashCard(data[numero].name, data[numero].start.day.toString() + " " + getMonth(data[numero].start.month), data[numero].price.toString() + " \u0024", getTime(data[numero].start), data[numero].location.locationName);
     // var f = new flashCard(numero.toString(), numero.toString(), numero.toString(), numero.toString(), numero.toString());
     numero += 1;
     return f;
@@ -70,5 +70,5 @@ String getMonth(int mois) {
 }
 
 String getTime(DateTime date) {
-  return 
+  return date.hour.toString() + " h " + date.minute.toString();
 }
