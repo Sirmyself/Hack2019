@@ -108,8 +108,10 @@ Widget location = Container(
   padding: EdgeInsets.only(left: 10, bottom: 10),
   child: Row(
     children: [
-      Icon(Icons.location_on, color: Colors.blueAccent),
-      Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent),)
+      Icon(Icons.location_on, color: Colors.blueAccent, size: 35.0,),
+      Expanded(
+        child: Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent, fontSize: 20), softWrap: true,),
+      )
     ],
   ),
 );
