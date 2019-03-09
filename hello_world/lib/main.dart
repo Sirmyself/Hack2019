@@ -44,6 +44,23 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 Widget flashCard = Container(
+  margin: EdgeInsets.all(15),
+  padding: EdgeInsets.all(15),
+  decoration: new BoxDecoration(
+    boxShadow: [
+      BoxShadow(
+        color: Colors.blueAccent[100],
+        blurRadius: 20,
+        spreadRadius: 5,
+        offset: Offset(10, 10),
+      )
+    ],
+    borderRadius: new BorderRadius.all(
+      const Radius.circular(25)
+    ),
+    border: new Border.all(color: Colors.white),
+    color: Colors.white
+  ),
   child: Row(
     children: [
       Expanded(
@@ -61,6 +78,7 @@ Widget flashCard = Container(
                 )
               )
               ),
+            location,
             infoImportanteSection
           ],
         )
@@ -74,13 +92,22 @@ Widget infoImportanteSection = Container(
   child: Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
+      construireInfo(Colors.blueAccent, Icons.date_range, '3 avril 2019'),
       construireInfo(Colors.blueAccent, Icons.access_time, '13h00'),
-      construireInfo(Colors.blueAccent, Icons.location_on, 'Complexe Desjardins'),
-      construireInfo(Colors.blueAccent, Icons.date_range, '3 avril 2019')
+      construireInfo(Colors.blueAccent, Icons.attach_money, '5.00 \u0024')
     ],
   ),
 );
 
+Widget location = Container(
+  padding: EdgeInsets.only(left: 10, bottom: 10),
+  child: Row(
+    children: [
+      Icon(Icons.location_on, color: Colors.blueAccent),
+      Text('Complexe sportif Desjardins, Rimouski', style: TextStyle(color: Colors.blueAccent),)
+    ],
+  ),
+);
 
 Column construireInfo(Color color, IconData icon, String label) {
     return Column(
