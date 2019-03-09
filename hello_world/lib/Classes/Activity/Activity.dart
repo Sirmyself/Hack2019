@@ -1,7 +1,7 @@
 import '../Location/Location.dart';
 
 class Activity {
-  static List<String> actTypes;
+  static List<String> actTypes = new List<String>();
 
   Location location;
   String code;
