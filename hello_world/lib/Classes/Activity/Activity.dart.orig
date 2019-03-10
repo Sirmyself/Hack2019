@@ -37,18 +37,10 @@ class Activity implements Comparable {
     // }
   }
 
-  int getNbParticipant() {
-    return this.listParticipants.length+1;
-  }
-
+<<<<<<< Updated upstream
   @override
   int compareTo(other) {
-
     if (!(other is Activity)) throw new Exception("the object [" + other.toString() + "] can not be compared to an Activity Object.");
-
-    User getAuteur() {
-      return this.user;
-    }
 
     int retVal = this.type.compareTo(other.type);
     if (retVal == 0) {
@@ -62,6 +54,14 @@ class Activity implements Comparable {
     }
 
     return null;
+=======
+  User getAuteur() {
+    return this.user;
+  }
+
+  int getNbParticipant() {
+    return this.listParticipants.length;
+>>>>>>> Stashed changes
   }
 }
 
