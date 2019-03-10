@@ -76,8 +76,8 @@ class JSONDataLoader implements IDataLoader {
         items["DESCRIPTION_NAT"],
         items["NOM_COUR"],
         double.parse(items["TARIF_BASE"]),
-        DateTime.parse(items["DATE_DEB"]),
-        DateTime.parse(items["DATE_FIN"])
+        DateTime.parse(items["DATE_DEB"] + " " + items["HEURE_DEBUT"]),
+        DateTime.parse(items["DATE_FIN"] + " " + items["HEURE_FIN"])
       ));
     }
 
