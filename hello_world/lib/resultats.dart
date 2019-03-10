@@ -51,7 +51,9 @@ class _ActivityListItem extends StatelessWidget {
       subtitle: Column(
         children: <Widget>[
           Row(children: <Widget>[
-            Text(_activity.location.locationName),
+            Expanded(
+              child: Text(_activity.location.locationName),
+            )
           ],),
           Row(children: <Widget>[
             Text(_activity.start.toString().substring(0,19)),
