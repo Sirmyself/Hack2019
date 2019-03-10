@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'Classes/Activity/Activity.dart';
-import 'Classes/DebugDataLoader.dart';
 import 'Classes/Activity/ActivityUtilities.dart';
 import 'activity.dart' as Activite;
 
@@ -44,11 +43,11 @@ class _ActivityListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.only(top: 5, left: 25, bottom: 5),
+      contentPadding: EdgeInsets.only(top: 5, left: 25, bottom: 5, right: 5),
       leading: CircleAvatar(
         child: Text(_activity.name[0]),
       ),
-      title: Text(_activity.name, style: TextStyle(fontWeight: FontWeight.bold),),
+      title: Text(_activity.name, style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Column(
         children: <Widget>[
           Row(children: <Widget>[
