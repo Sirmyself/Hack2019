@@ -1,6 +1,6 @@
 import '../Location/Location.dart';
 
-class Activity {
+class Activity implements Comparable {
   static List<String> actTypes = new List<String>();
 
   Location location;
@@ -28,6 +28,24 @@ class Activity {
     //   actTypes.add(this.type);
     //   actTypes.sort();
     // }
+  }
+
+  @override
+  int compareTo(other) {
+    if (!(other is Activity)) throw new Exception("the object [" + other.toString() + "] can not be compared to an Activity Object.");
+
+    int retVal = this.type.compareTo(other.type);
+    if (retVal == 0) {
+      retVal = this.name.compareTo(other.name);
+    }
+    if (retVal == 0) {
+      retVal = this.start.compareTo(other.start);
+    }
+    if (retVal == 0) {
+      retVal = this.location.compareTo(other.location);
+    }
+
+    return null;
   }
 }
 

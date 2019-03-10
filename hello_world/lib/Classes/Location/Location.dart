@@ -59,4 +59,16 @@ class Location implements Comparable {
     }
     return retVal;
   }
+
+  int containsScore(String keyword) {
+    int retVal = 0;
+    if (_locationName.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    if (_civicNumber.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    if (_streeName.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    if (_borough.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    if (_city.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    if (_stateCode.toLowerCase().contains(keyword.toLowerCase())) ++retVal; 
+    if (_postalCode.toLowerCase().contains(keyword.toLowerCase())) ++retVal;
+    return retVal;
+  }
 }

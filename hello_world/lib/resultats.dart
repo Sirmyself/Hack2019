@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Classes/Activity/Activity.dart';
-import 'Classes/DebugDataLoader.dart';
+import 'Classes/JSONDataLoader.dart';
 import 'Classes/Activity/ActivityUtilities.dart';
 import 'activity.dart' as Activite;
 
@@ -97,7 +97,7 @@ class ActivitiesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ActivityList(ActivityUtility.search(_ville, _criteres),
+      body: ActivityList(ActivityUtility.search(_ville, _criteres, _dateDebut, _dateFin),
     ),
     );}
 }
