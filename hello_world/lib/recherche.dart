@@ -16,7 +16,7 @@ class _Recherche extends State<Recherche>{
   String _valueDebut = new DateTime.now().toString().substring(0,10);
   String _valueFin = new DateTime.now().toString().substring(0,10);
 
-  List _villes = ['Matane','Montréal','Québec','Rimouski', 'Rivière-du-Loup'];
+  List _villes = ['Laval','Matane','Montréal','Québec','Rimouski', 'Rivière-du-Loup'];
   List<DropdownMenuItem<String>> _dropDownMenuItems;
   String _currentCity;
 
