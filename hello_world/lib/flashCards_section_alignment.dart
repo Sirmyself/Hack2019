@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'flashCardAlignment.dart';
 import 'dart:math';
-import 'Classes/DebugDataLoader.dart';
+import 'Classes/JSONDataLoader.dart';
 import 'Classes/Activity/Activity.dart';
-import 'overlay.dart';
 
 List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
 List<Activity> liked = new List<Activity>();
 List<Activity> hated = new List<Activity>(); 
-List<Activity> activities = DebugDataLoader().loadCityActivities("Quebec");
+List<Activity> activities = JSONDataLoader().loadCityActivities("Quebec");
 int activitiesCount = activities.length;
 int numero = 0;
 int image = 0;
