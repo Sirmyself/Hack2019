@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Classes/Activity/Activity.dart' as Activite;
 import 'arc_banner.dart';
-import 'ListUser.dart';
 
 class Activity extends StatefulWidget {
 

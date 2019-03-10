@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/flashCard.dart';
 import '../Activity/User.dart';
 import '../../arc_banner.dart';
 
