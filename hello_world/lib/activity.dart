@@ -80,19 +80,23 @@ class _ActivityState extends State<Activity> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: Column(
+            child: Container(
+              width: 300,
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  widget.activity.user.getNom(),
+                  widget.activity.name,
+                  overflow:TextOverflow.ellipsis,
                   style: TextStyle(
                       fontSize: 26.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  widget.activity.user.getPrenom(),
+                  widget.activity.user.getPrenom() + " " + widget.activity.user.getNom(),
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       fontSize: 14.0,
                       color: Colors.white,
@@ -100,6 +104,7 @@ class _ActivityState extends State<Activity> {
                 ),
               ],
             ),
+          ),
           ),
         ],
       ),

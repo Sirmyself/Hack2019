@@ -96,8 +96,8 @@ class JSONDataLoader implements IDataLoader {
         items["DESCRIPTION_NAT"],
         items["DESCRIP"],
         double.parse((items["CO"]).replaceAll(new RegExp(','),".")),
-        DateTime.parse(items["DT01"]),
-        DateTime.parse(items["DT02"])
+        DateTime.parse(items["DT01"] + " 12:30:00"),
+        DateTime.parse(items["DT02"] + " 12:30:00")
       ));
     }
 
