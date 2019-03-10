@@ -10,7 +10,7 @@ class Resultats extends StatefulWidget {
     final DateTime _dateDebut;
     final DateTime _dateFin;
 
-    Resultats(this._criteres, this._ville, this._dateDebut, this._dateFin) :super(); 
+    Resultats(this._criteres, this._ville, this._dateDebut, this._dateFin) :super();
     
     @override
     State<StatefulWidget> createState() {

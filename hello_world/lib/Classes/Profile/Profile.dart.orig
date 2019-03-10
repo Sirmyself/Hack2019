@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
+=======
 import 'TestUser.dart';
+>>>>>>> Stashed changes
 import '../Activity/User.dart';
 import '../../arc_banner.dart';
 import '../Activity/Activity.dart';

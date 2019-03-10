@@ -3,6 +3,8 @@ import 'flashCardAlignment.dart';
 import 'dart:math';
 import 'Classes/JSONDataLoader.dart';
 import 'Classes/Activity/Activity.dart';
+import 'Classes/Profile/TestUser.dart';
+import 'Classes/Activity/User.dart';
 
 List<Alignment> cardsAlign = [ new Alignment(0.0, 1.5), new Alignment(0.0, 0.8), new Alignment(0.0, 0.0) ];
 List<Size> cardsSize = new List(3);
@@ -13,11 +15,15 @@ int activitiesCount = activities.length;
 int numero = 0;
 int image = 0;
 int imageNumber = 7;
+User _user = TestUser().getUser();
 
 List<Activity> getListActivity() => activities;
 
 class CardsSectionAlignment extends StatefulWidget
 {
+
+
+
   CardsSectionAlignment(BuildContext context)
   {
     cardsSize[0] = new Size(MediaQuery.of(context).size.width * 0.9, MediaQuery.of(context).size.height * 0.75);
@@ -31,6 +37,7 @@ class CardsSectionAlignment extends StatefulWidget
 
 class _CardsSectionState extends State<CardsSectionAlignment> with SingleTickerProviderStateMixin
 {
+
   int cardsCounter = 0;
 
   List<FlashCardAlignment> cards = new List();
@@ -286,7 +293,8 @@ class CardsAnimation
 
     if(isSwipedRight) 
     {
-      liked.add(card.activity);
+      //liked.add(card.activity);
+      _user.addActivity(card.activity);
     }
     else{
       hated.add(card.activity);
