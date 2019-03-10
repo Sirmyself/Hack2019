@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Classes/Activity/Activity.dart';
 
 class FlashCard extends StatefulWidget {
   final String titre;
@@ -7,11 +8,12 @@ class FlashCard extends StatefulWidget {
   final String date;
   final String location;
   final int image;
+  Activity activity;
 
   @override
   _FlashCardState createState() => _FlashCardState();
 
-  FlashCard(this.titre, this.heure, this.prix, this.date, this.location, this.image);
+  FlashCard(this.activity, this.titre, this.heure, this.prix, this.date, this.location, this.image);
 }
 
 class _FlashCardState extends State<FlashCard> {
