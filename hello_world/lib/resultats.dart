@@ -35,6 +35,14 @@ class _Resultats extends State<Resultats>{
   }
 }
 
+String afficherChampDateHeure(DateTime dateHeure){
+  String heure = dateHeure.toString().substring(11, 19);
+  if(heure == "00:00:00"){
+    return dateHeure.toString().substring(0,10);
+  }
+  return dateHeure.toString();
+}
+
 class _ActivityListItem extends StatelessWidget {
   final Activity _activity;
 
@@ -51,10 +59,12 @@ class _ActivityListItem extends StatelessWidget {
       subtitle: Column(
         children: <Widget>[
           Row(children: <Widget>[
-            Text(_activity.location.locationName),
+            Expanded(
+              child: Text(_activity.location.locationName),
+            )
           ],),
           Row(children: <Widget>[
-            Text(_activity.start.toString().substring(0,19)),
+            Text(afficherChampDateHeure(_activity.start)),
           ],)
         ],
       ),

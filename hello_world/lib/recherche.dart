@@ -87,7 +87,7 @@ class _Recherche extends State<Recherche>{
           Row(
             children: [
               new Flexible(  
-                child: Container(
+                child: SingleChildScrollView(child: Container(
                   margin: EdgeInsets.only(left:25.0, top: 5.0, right:25.0, bottom: 0.0),
                   child: TextField(
                     controller: myController,
@@ -96,7 +96,7 @@ class _Recherche extends State<Recherche>{
                     ),
                     style: TextStyle(fontSize: 18),
                   ),
-                ),
+                ),)
               ),
             ],
           ),
