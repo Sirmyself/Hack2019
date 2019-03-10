@@ -61,7 +61,7 @@ class _ActivityListItem extends StatelessWidget {
       ),
     onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Activite.Activity()),
+                MaterialPageRoute(builder: (context) => Activite.Activity(_activity)),
     ),);
   }
 }

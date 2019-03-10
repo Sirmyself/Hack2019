@@ -22,7 +22,7 @@ class _FlashCardAlignmentState extends State<FlashCardAlignment> {
   @override
   Widget build(BuildContext context)
   {
-    return new FlashCard(data[widget.numero].name, data[widget.numero].start.day.toString() + " " + getMonth(data[widget.numero].start.month), data[widget.numero].price.toString() + " \u0024", getTime(data[widget.numero].start), data[widget.numero].location.locationName, widget.image);
+    return new FlashCard(data[widget.numero], data[widget.numero].name, data[widget.numero].start.day.toString() + " " + getMonth(data[widget.numero].start.month), data[widget.numero].price.toString() + " \u0024", getTime(data[widget.numero].start), data[widget.numero].location.locationName, widget.image);
   }
 }
 
