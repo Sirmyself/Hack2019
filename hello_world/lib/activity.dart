@@ -167,11 +167,16 @@ class _ActivityState extends State<Activity> {
                         child: Row(
                             children: [
                               Icon(Icons.location_on, color: Colors.grey),
-                              Text(
+                              Container(
+                                width: 300,
+                                child: Text(
                                   widget.activity.location.locationName,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold
                                 ),
+                              ),
                               )
                             ]
                         ),
@@ -181,8 +186,11 @@ class _ActivityState extends State<Activity> {
                 _separator(),
                 Padding(
                   padding: EdgeInsets.only(left: 20.0),
-                  child: Row(
+                  child: Container(
+                    width: 300,
+                    child:Row(
                     children: _buildCategoryChips(),
+                  ),
                   ),
                 ),
                 Row(
@@ -269,7 +277,7 @@ class _ActivityState extends State<Activity> {
       return Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: Chip(
-          label: Text(category),
+          label: Text(category, overflow: TextOverflow.fade),
           backgroundColor: Colors.black12,
         ),
       );
