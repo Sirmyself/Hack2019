@@ -55,7 +55,7 @@ class _FlashCardState extends State<FlashCard> {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25)
               ),
-              child: Image.asset('assets/images/'+ widget.image.toString()  +'.jpg', fit: BoxFit.fitWidth, width: 500,)),
+              child: Image.asset('assets/images/'+ getReleventPicture(widget.activity)  +'.jpg', fit: BoxFit.fitWidth, width: 500,)),
             Container(
               decoration: new BoxDecoration(
                 color: Colors.transparent,
@@ -86,6 +86,11 @@ class _FlashCardState extends State<FlashCard> {
     );
     return scaffold;
   }
+}
+
+String getReleventPicture(Activity activity){
+  return "team";
+  
 }
 
 Widget infoImportanteSection(String date, String prix, String heure)
