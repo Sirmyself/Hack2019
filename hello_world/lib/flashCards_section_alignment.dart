@@ -14,6 +14,8 @@ int numero = 0;
 int image = 0;
 int imageNumber = 7;
 
+List<Activity> getListActivity() => activities;
+
 class CardsSectionAlignment extends StatefulWidget
 {
   CardsSectionAlignment(BuildContext context)
