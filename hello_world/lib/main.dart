@@ -22,11 +22,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home:Home(),
-      // home: MyHomePage(title: 'Flash'),
     );
-
   }
-
 }
 
 class FlashCardSwipe extends StatefulWidget {
@@ -42,10 +39,7 @@ class _FlashCardSwipeState extends State<FlashCardSwipe> {
     return new Scaffold(
       body: new Column(
         children: <Widget>[
-          new CardsSectionAlignment(context),
-          Row(
-            
-          )
+          new CardsSectionAlignment(context)
         ],
       ),
     );

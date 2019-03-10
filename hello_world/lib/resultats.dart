@@ -58,7 +58,9 @@ class _ActivityListItem extends StatelessWidget {
       subtitle: Column(
         children: <Widget>[
           Row(children: <Widget>[
-            Text(_activity.location.locationName),
+            Expanded(
+              child: Text(_activity.location.locationName),
+            )
           ],),
           Row(children: <Widget>[
             Text(afficherChampDateHeure(_activity.start)),

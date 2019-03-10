@@ -11,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   final List<Widget> _children = [
     Recherche(),
     new FlashCardSwipe(),
@@ -35,18 +35,25 @@ class _HomeState extends State<Home> {
             title: new Text('Recherche'),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.flash_on),
-            title: new Text('Flash'),
+            icon: new Icon(Icons.format_bold),
+            title: new Text('Flash'),              
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.person),
             title: new Text('Profil'),
           )
         ],
+        
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: new FloatingActionButton(
+            child: new Icon(Icons.flash_on),
+            tooltip: 'Flash',
+            onPressed:(){ onTabTapped(1); },
+          )
     );
+    
   }
-
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;

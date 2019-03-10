@@ -42,8 +42,8 @@ class ActivityUtility {
     List<ScoredActivityRecord> actMap = new List();
     for (String s in keysList) {
       for (Activity a in list) {
-        int score = 0;
-        RegExp r = new RegExp(r"^" + s.toLowerCase() + "|( " + s.toLowerCase() + ")[;:., ]");
+        int score = 0; // " + s.toLowerCase() + "
+        RegExp r = new RegExp(r"(^" + s.toLowerCase() + ")|(" + s.toLowerCase() + "[;:,. ])|( " + s.toLowerCase() + "\$)");
         if (a.name != null && a.name.toLowerCase().contains(r)) {
           ++score;
         }

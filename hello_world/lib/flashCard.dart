@@ -66,6 +66,8 @@ class _FlashCardState extends State<FlashCard> {
               padding: EdgeInsets.all(10),
               child: Text(
                 widget.titre,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30
@@ -89,6 +91,9 @@ class _FlashCardState extends State<FlashCard> {
 Widget infoImportanteSection(String date, String prix, String heure)
 {
   return new Container(
+    padding: EdgeInsets.only(
+      top: 5
+    ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
