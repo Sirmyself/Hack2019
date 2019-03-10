@@ -40,20 +40,20 @@ class ActivityUtility {
       for (Activity a in list) {
         int score = 0;
         RegExp r = new RegExp(r"^" + s.toLowerCase() + "|( " + s.toLowerCase() + ")[;:., ]");
-        if (a.name.toLowerCase().contains(r)) {
+        if (a.name != null && a.name.toLowerCase().contains(r)) {
           ++score;
         }
-        if (a.organizer.toLowerCase().contains(r)) {
+        if (a.organizer != null && a.organizer.toLowerCase().contains(r)) {
           ++score;
         }
         int locationScore = a.location.containsScore(s.toLowerCase());
         if (locationScore > 0) {
           score += locationScore;
         }
-        if (a.description.toLowerCase().contains(r)) {
+        if (a.description != null && a.description.toLowerCase().contains(r)) {
           ++score;
         }
-        if (a.type.contains(r)) {
+        if (a.type != null && a.type.contains(r)) {
           ++score;
         } 
 

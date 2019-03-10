@@ -27,15 +27,15 @@ class Location implements Comparable {
   Location(String locationName, String civicNumber, String streetName, String borough, String city, String stateCode, String postalCode, double latitude, double longitude) {
     this._id = _index++;
 
-    this._locationName = locationName;
-    this._civicNumber = civicNumber;
-    this._streeName = streetName;
-    this._borough = borough;
-    this._city = city;
-    this._stateCode = stateCode;
-    this._postalCode = postalCode;
-    this._latitude = latitude;
-    this._longitute = longitude;
+    this._locationName = locationName == null ? "" : locationName;
+    this._civicNumber = civicNumber == null ? "" : civicNumber;
+    this._streeName = streetName == null ? "" : streetName;
+    this._borough = borough == null ? "" : borough;
+    this._city = city == null ? "" : city;
+    this._stateCode = stateCode == null ? "" : stateCode;
+    this._postalCode = postalCode == null ? "" : postalCode;
+    this._latitude = latitude == null ? "" : latitude;
+    this._longitute = longitude == null ? "" : longitude;
   }
 
   String toString() {

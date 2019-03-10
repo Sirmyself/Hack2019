@@ -14,15 +14,15 @@ class Activity implements Comparable {
   DateTime end;
 
   Activity(location, code, name, description, type, organizer, price, start, end) {
-    this.location = location;
-    this.code = code;
-    this.name = name;
-    this.description = description;
-    this.type = type;
-    this.organizer = organizer;
-    this.price = price;
-    this.start = start;
-    this.end = end;
+    this.location = location == null ? "" : location;
+    this.code = code == null ? "" : code;
+    this.name = name == null ? "" : name;
+    this.description = description == null ? "" : description;
+    this.type = type == null ? "" : type;
+    this.organizer = organizer == null ? "" : organizer;
+    this.price = price == null ? "" : price;
+    this.start = start == null ? "" : start;
+    this.end = end == null ? "" : end;
 
     // if (!(actTypes.indexOf(this.type == null ? "" : this.type) >= 0)) {
     //   actTypes.add(this.type);
@@ -45,7 +45,7 @@ class Activity implements Comparable {
       retVal = this.location.compareTo(other.location);
     }
 
-    return null;
+    return retVal;
   }
 }
 
