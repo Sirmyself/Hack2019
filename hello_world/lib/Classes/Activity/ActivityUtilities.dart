@@ -30,6 +30,10 @@ class ActivityUtility {
   static List<Activity> search(String city, String keywords, DateTime starting, DateTime ending) {
     List<Activity> filtered = new List();
 
+    if(city != "Québec"){
+      return filtered;
+    }
+
     city = "quebec";
     IDataLoader loader = new JSONDataLoader(); 
     List<Activity> list = loader.loadCityActivities(city).where((a) => (a.start.compareTo(starting) >= 0) && (a.end.compareTo(ending) <= 0)).toList();

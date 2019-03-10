@@ -31,7 +31,6 @@ class _Resultats extends State<Resultats>{
             ],
           ),        
     );
-        
   }
 }
 
@@ -104,7 +103,19 @@ class ActivitiesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ActivityList(ActivityUtility.search(_ville, _criteres, _dateDebut, _dateFin),
-    ),
-    );}
+      body: afficherResultats(),
+    );
+    
+  }
+
+  Widget afficherResultats(){
+    var activityList = ActivityList(ActivityUtility.search(_ville, _criteres, _dateDebut, _dateFin));
+    if(activityList._activities.length == 0){
+      return new Container(
+                  margin: EdgeInsets.only(left: 25.0,top:25, bottom: 25.0),
+                  child: Text("Aucun résultat", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold))
+                  );
+    }
+    return activityList;
+    }
 }
