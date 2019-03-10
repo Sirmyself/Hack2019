@@ -6,15 +6,13 @@ class User {
 
   String _nom;
   String _prenom;
-  List<Activity> _listActivitySelected = List<Activity>();
+  String _logo;
+  List<Activity> _listActivitySelected;
 
 
-  User() {
-      this._nom = "Tom";
-      this._prenom = "Thibeault";
-      List<Activity> data = DebugDataLoader().loadCityActivities("Quebec");
-      _listActivitySelected.add(data[0]);
-      _listActivitySelected.add(data[1]);
+  User(this._prenom, this._nom) {
+    _listActivitySelected = List<Activity>();
+    _logo = "assets/images/man1.png";
   }
 
   String getNom() {
@@ -27,7 +25,20 @@ class User {
 
   List<Activity> getListActivitySelected() {
   return this._listActivitySelected;
-}
+  }
+
+  void addActivity(Activity a) {
+    for(int i = 0; i < _listActivitySelected.length; i++) {
+      if(_listActivitySelected[i] == a) {
+        return;
+      }
+    }
+    this._listActivitySelected.add(a);
+  }
+
+  String getLogoPath() {
+    return this._logo;
+  }
 
 
 

@@ -9,6 +9,7 @@ class Activity extends StatefulWidget {
   Activity(this.activity) : super();
   List<String> _listCategory = List<String>();
 
+
   List initState() {
     if(_listCategory.length != 2) {
       _listCategory.add("Sport");
@@ -23,7 +24,26 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
 
+  bool actif = false;
+  String btnParticiper = "Participer";
+  int count = 0;
   double _imageHeight = 256.0;
+
+  void _buttonChange() {
+    setState(() {
+      if(!actif) {
+        btnParticiper = "Ne plus participer";
+        count += 1;
+        actif = !actif;
+      } else {
+        btnParticiper = "Participer";
+        count -= 1;
+        actif = !actif;
+      }
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +67,13 @@ class _ActivityState extends State<Activity> {
 
   Widget _buildProfileRow() {
     return Padding(
-      padding: EdgeInsets.only(left: 16.0, top: _imageHeight / 2.5),
+      padding: EdgeInsets.only(left: 16.0, top: _imageHeight / 3.8),
       child: Row(
         children: <Widget>[
           CircleAvatar(
             minRadius: 28.0,
             maxRadius: 28.0,
-            backgroundImage: AssetImage('images/avatar.jpg'),
+            backgroundImage: AssetImage(widget.activity.user.getLogoPath()),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
@@ -62,14 +82,14 @@ class _ActivityState extends State<Activity> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  'Ryan Barnes',
+                  widget.activity.user.getNom(),
                   style: TextStyle(
                       fontSize: 26.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  'Product designer',
+                  widget.activity.user.getPrenom(),
                   style: TextStyle(
                       fontSize: 14.0,
                       color: Colors.white,
@@ -167,9 +187,9 @@ class _ActivityState extends State<Activity> {
                   children: <Widget>[
                     MaterialButton(
                       minWidth: MediaQuery.of(context).size.width-50,
-                      child: Text("Participer", style: TextStyle(color: Colors.white)),
+                      child: Text(btnParticiper, style: TextStyle(color: Colors.white)),
                       color: Colors.blue,
-                      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                      onPressed: _buttonChange,
                     )
                   ],
                 ),
@@ -179,7 +199,7 @@ class _ActivityState extends State<Activity> {
                     children: <Widget>[
                       Row(
                        children: <Widget>[
-                         Text("50 participants", style: TextStyle(fontWeight: FontWeight.bold))
+                         Text( (widget.activity.getNbParticipant() + count).toString() + " participants", style: TextStyle(fontWeight: FontWeight.bold))
                        ],
                       ),
                       Padding(
@@ -191,7 +211,7 @@ class _ActivityState extends State<Activity> {
                               child: CircleAvatar(
                                 minRadius: 20.0,
                                 maxRadius: 20.0,
-                                backgroundImage: AssetImage('images/avatar.jpg'),
+                                backgroundImage: AssetImage('assets/images/women1.png'),
                               ),
                             ),
                             Padding(
@@ -199,7 +219,7 @@ class _ActivityState extends State<Activity> {
                               child: CircleAvatar(
                                 minRadius: 20.0,
                                 maxRadius: 20.0,
-                                backgroundImage: AssetImage('images/avatar.jpg'),
+                                backgroundImage: AssetImage('assets/images/women2.png'),
                               ),
                             ),
                             Padding(
@@ -207,7 +227,7 @@ class _ActivityState extends State<Activity> {
                               child: CircleAvatar(
                                 minRadius: 20.0,
                                 maxRadius: 20.0,
-                                backgroundImage: AssetImage('images/avatar.jpg'),
+                                backgroundImage: AssetImage('assets/images/man3.png'),
                               ),
                             ),
                             Padding(

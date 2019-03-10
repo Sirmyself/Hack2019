@@ -72,7 +72,7 @@ class _Recherche extends State<Recherche>{
   @override
   Widget build(BuildContext ctxt){
     return new Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
         child: 
         Column(
         children: <Widget>[ 

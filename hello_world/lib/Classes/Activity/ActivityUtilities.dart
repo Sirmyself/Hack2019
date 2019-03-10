@@ -1,6 +1,6 @@
-import '../JSONDataLoader.dart';
 import '../Activity/Activity.dart';
 import '../../Interfaces/IDataLoader.dart';
+import '../JSONDataLoader.dart';
 
 class ScoredActivityRecord implements Comparable {
   Activity activity;

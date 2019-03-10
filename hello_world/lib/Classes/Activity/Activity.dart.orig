@@ -17,15 +17,19 @@ class Activity implements Comparable {
   List<User> listParticipants = List();
 
   Activity(location, code, name, description, type, organizer, price, start, end) {
-    this.location = location == null ? "" : location;
-    this.code = code == null ? "" : code;
-    this.name = name == null ? "" : name;
-    this.description = description == null ? "" : description;
-    this.type = type == null ? "" : type;
-    this.organizer = organizer == null ? "" : organizer;
-    this.price = price == null ? "" : price;
-    this.start = start == null ? "" : start;
-    this.end = end == null ? "" : end;
+    this.location = location;
+    this.code = code;
+    this.name = name;
+    this.description = description;
+    this.type = type;
+    this.organizer = organizer;
+    this.price = price;
+    this.start = start;
+    this.end = end;
+    user = User("Tom", "Roy");
+    listParticipants.add(new User("Sonia", "Pelletier"));
+    listParticipants.add(new User("Sarah", "Thibeault"));
+    listParticipants.add(new User("David", "Roy"));
 
     // if (!(actTypes.indexOf(this.type == null ? "" : this.type) >= 0)) {
     //   actTypes.add(this.type);
@@ -33,18 +37,10 @@ class Activity implements Comparable {
     // }
   }
 
-  int getNbParticipant() {
-    return this.listParticipants.length+1;
-  }
-
+<<<<<<< Updated upstream
   @override
   int compareTo(other) {
-
     if (!(other is Activity)) throw new Exception("the object [" + other.toString() + "] can not be compared to an Activity Object.");
-
-    User getAuteur() {
-      return this.user;
-    }
 
     int retVal = this.type.compareTo(other.type);
     if (retVal == 0) {
@@ -57,7 +53,15 @@ class Activity implements Comparable {
       retVal = this.location.compareTo(other.location);
     }
 
-    return retVal;
+    return null;
+=======
+  User getAuteur() {
+    return this.user;
+  }
+
+  int getNbParticipant() {
+    return this.listParticipants.length;
+>>>>>>> Stashed changes
   }
 }
 

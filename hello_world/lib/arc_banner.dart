@@ -13,7 +13,7 @@ class ArcBannerImage extends StatelessWidget {
       child: Image.asset(
         imageUrl,
         width: screenWidth,
-        height: 230.0,
+        height: 180.0,
         fit: BoxFit.cover,
         colorBlendMode: BlendMode.srcOver,
         color: new Color.fromARGB(120, 20, 10, 40),
