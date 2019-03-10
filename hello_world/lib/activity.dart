@@ -11,10 +11,13 @@ class Activity extends StatefulWidget {
 
 
   List initState() {
-    if(_listCategory.length != 2) {
-      _listCategory.add("Sport");
-      _listCategory.add("Plein air");
-    }
+    _listCategory.clear();
+    _listCategory.addAll(Activite.Activity.actTypes);
+    
+    // if(_listCategory.length != 2) {
+    //   _listCategory.add("Sport");
+    //   _listCategory.add("Plein air");
+    // }
     return _listCategory;
   }
 

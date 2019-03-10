@@ -1,5 +1,6 @@
 import '../Location/Location.dart';
 import 'User.dart';
+import '../Profile/TestUser.dart';
 
 class Activity implements Comparable {
   static List<String> actTypes = new List<String>();
@@ -13,7 +14,7 @@ class Activity implements Comparable {
   double price;
   DateTime start;
   DateTime end;
-  User user;
+  User user = TestUser().getUser();
   List<User> listParticipants = List();
 
   Activity(location, code, name, description, type, organizer, price, start, end) {
@@ -27,10 +28,10 @@ class Activity implements Comparable {
     this.start = start == null ? "" : start;
     this.end = end == null ? "" : end;
 
-    // if (!(actTypes.indexOf(this.type == null ? "" : this.type) >= 0)) {
-    //   actTypes.add(this.type);
-    //   actTypes.sort();
-    // }
+    if (this.type != null && this.type != "" && !(actTypes.indexOf(this.type == null ? "" : this.type) >= 0)) {
+      actTypes.add(this.type);
+      actTypes.sort();
+    }
   }
 
   int getNbParticipant() {
