@@ -34,8 +34,15 @@ class Activity implements Comparable {
     }
   }
 
+  String getDesciption() {
+    if (this.description == "") {
+      return "Proin id pharetra ex, a pretium ex. Donec lacinia, mi non volutpat pretium, sem orci suscipit dui, at finibus sem lorem id tortor. Sed pulvinar faucibus libero nec commodo. Nam efficitur vitae diam eu semper. Donec vestibulum nec felis in pellentesque. Nullam ultricies ornare erat eu vehicula. Aenean accumsan in tellus id tincidunt. ";
+    }
+    return this.description;
+  }
+
   int getNbParticipant() {
-    return this.listParticipants.length+1;
+    return this.listParticipants.length+3;
   }
 
   @override
