@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp(
       title: 'HackQC19',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
