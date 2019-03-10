@@ -60,7 +60,7 @@ class _ActivityListItem extends StatelessWidget {
       ),
     onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Activite.Activity()),
+                MaterialPageRoute(builder: (context) => Activite.Activity(_activity)),
     ),);
   }
 }
@@ -96,7 +96,7 @@ class ActivitiesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ActivityList(ActivityUtility.search(_ville, _criteres),
+      body: ActivityList(ActivityUtility.search(_ville, _criteres, _dateDebut, _dateFin),
     ),
     );}
 }

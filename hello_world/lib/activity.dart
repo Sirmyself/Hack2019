@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'Classes/Activity/Activity.dart' as Activite;
 import 'arc_banner.dart';
-import 'ListUser.dart';
 
 class Activity extends StatefulWidget {
-  Activity() : super();
 
-  String _title = "Partie de soccer";
+  Activite.Activity activity;
+
+  Activity(this.activity) : super();
   List<String> _listCategory = List<String>();
 
   List initState() {
@@ -111,7 +112,7 @@ class _ActivityState extends State<Activity> {
                             children: [
                               Icon(Icons.date_range, color: Colors.grey),
                               Text(
-                                '19 sep. 2019',
+                                widget.activity.start.toString().substring(0,10),
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold
                                 ),
@@ -125,7 +126,7 @@ class _ActivityState extends State<Activity> {
                           children: [
                             Icon(Icons.access_time, color: Colors.grey),
                             Text(
-                              '18H00',
+                              widget.activity.start.toString().substring(11,19),
                               style: TextStyle(
                                   fontWeight: FontWeight.bold
                               ),
@@ -144,7 +145,7 @@ class _ActivityState extends State<Activity> {
                             children: [
                               Icon(Icons.location_on, color: Colors.grey),
                               Text(
-                                  'La plage de Pomerleau',
+                                  widget.activity.location.locationName,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold
                                 ),
