@@ -55,7 +55,7 @@ class _FlashCardState extends State<FlashCard> {
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25)
               ),
-              child: Image.asset('assets/images/'+ getReleventPicture(widget.activity)  +'.jpg', fit: BoxFit.fitWidth, width: 200,)),
+              child: Image.asset('assets/images/'+ getReleventPicture(widget.activity)  +'.png', fit: BoxFit.fitWidth, width: 500,)),
             Container(
               decoration: new BoxDecoration(
                 color: Colors.transparent,
