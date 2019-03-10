@@ -184,15 +184,14 @@ class _ActivityState extends State<Activity> {
                     ]
                 ),
                 _separator(),
-                Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: Container(
-                    width: 300,
-                    child:Row(
-                    children: _buildCategoryChips(),
+                Container(
+                    padding: EdgeInsets.only(left: 10.0),
+                    height: 48.0,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: _buildCategoryChips()
+                    ),
                   ),
-                  ),
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -315,7 +314,7 @@ class _ActivityState extends State<Activity> {
                   )
               ),
               Text(
-                  "Do you need simple layout samples for Flutter? I present you my set of Flutter layout code snippets. I will keep it short, sweet and simple with loads of visual examples. Still, it is work in progress — the catalog of samples will  grow"
+                  widget.activity.getDesciption()
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20.0),
