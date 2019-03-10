@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Tinder pour les cools'),
+        title: Text('RécréaZone'),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(

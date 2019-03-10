@@ -100,7 +100,6 @@ class JSONDataLoader implements IDataLoader {
         DateTime.parse(items["DT02"])
       ));
     }
-
     return shuffle(list);
   }
 
