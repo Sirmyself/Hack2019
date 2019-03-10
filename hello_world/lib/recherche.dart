@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'Classes/Activity/Activity.dart';
+//import 'Classes/Activity/Activity.dart';
 import 'resultats.dart';
 
 class Recherche extends StatefulWidget {
-  final List<Activity> listActivite = new List<Activity>();
+  //final List<Activity> listActivite = new List<Activity>();
   @override
   State<StatefulWidget> createState() {
     return _Recherche();
@@ -19,6 +19,8 @@ class _Recherche extends State<Recherche>{
   List _villes = ['Matane','Montréal','Québec','Rimouski', 'Rivière-du-Loup'];
   List<DropdownMenuItem<String>> _dropDownMenuItems;
   String _currentCity;
+
+  final myController = TextEditingController();
 
   Future _selectDateDebut() async {
     DateTime picked = await showDatePicker(
@@ -88,6 +90,7 @@ class _Recherche extends State<Recherche>{
                 child: Container(
                   margin: EdgeInsets.only(left:25.0, top: 5.0, right:25.0, bottom: 0.0),
                   child: TextField(
+                    controller: myController,
                     decoration: InputDecoration(
                       hintText: "Inscrire un mot clé",
                     ),
@@ -160,7 +163,7 @@ class _Recherche extends State<Recherche>{
               RaisedButton(onPressed: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Resultats()),
+                MaterialPageRoute(builder: (context) => Resultats(myController.text, _currentCity, DateTime.parse(_valueDebut), DateTime.parse(_valueFin))),
                 );
               }, child: new Text('Rechercher',style: TextStyle(fontSize: 25.0),),color: Colors.blue, textColor: Colors.white, padding: EdgeInsets.all(20),shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20)),
               ),   

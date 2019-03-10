@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'Classes/Activity/Activity.dart';
 import 'Classes/DebugDataLoader.dart';
+import 'Classes/Activity/ActivityUtilities.dart';
 import 'activity.dart' as Activite;
 
 class Resultats extends StatefulWidget {
+    final String _criteres;
+    final String _ville;
+    final DateTime _dateDebut;
+    final DateTime _dateFin;
+
+    Resultats(this._criteres, this._ville, this._dateDebut, this._dateFin) :super(); 
+    
     @override
     State<StatefulWidget> createState() {
     return _Resultats();
@@ -17,14 +25,12 @@ class _Resultats extends State<Resultats>{
     return new Scaffold(
       appBar: AppBar( title: Text("Résultats de la recherche"),),
       body: Stack(
-            children: [
-              
+            children: [             
               Container(
-                child: new ActivitiesPage()
+                child: new ActivitiesPage(widget._criteres, widget._ville, widget._dateDebut, widget._dateFin)
               ),
             ],
-          ),
-        
+          ),        
     );
         
   }
@@ -81,11 +87,17 @@ class ActivityList extends StatelessWidget {
 }
 
 class ActivitiesPage extends StatelessWidget {
+  final String _criteres;
+  final String _ville;
+  final DateTime _dateDebut;
+  final DateTime _dateFin;
+
+  ActivitiesPage(this._criteres, this._ville, this._dateDebut, this._dateFin);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ActivityList(DebugDataLoader().loadCityActivities("Quebec")),
-    );
-  }
+      body: ActivityList(ActivityUtility.search(_ville, _criteres),
+    ),
+    );}
 }
