@@ -13,7 +13,7 @@ List<Activity> activities = DebugDataLoader().loadCityActivities("Quebec");
 int activitiesCount = activities.length;
 int numero = 0;
 int image = 0;
-int imageNumber = 7;
+int imageNumber = 48;
 
 class CardsSectionAlignment extends StatefulWidget
 {
